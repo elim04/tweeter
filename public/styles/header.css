@@ -1,0 +1,25 @@
+
+.headerContainer {
+  background-color: silver;
+  background-image: url("/images/transparent-background.png");
+  height: 400px;
+  width: 100%;
+}
+
+.avatarContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#transparentBackground {
+  height: 400px;
+  width: 100%
+}
+
+.avatarName {
+  color: #FFFFFF;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 40px;
+}
