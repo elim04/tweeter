@@ -1,4 +1,6 @@
-
+.overCharLimit {
+  color: red;
+}
 
 .new-tweet {
   align-content: center;
