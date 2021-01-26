@@ -13,13 +13,11 @@ $(document).ready(function() {
   } else {
     counter.removeClass('overCharLimit')
   }
-  
+
   counter.html(characterCount);
   
 
   });
-
-
 
 
 });
