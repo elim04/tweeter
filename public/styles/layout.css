@@ -15,7 +15,7 @@ html {
  */
 
 body {
-  background-color: #f4f1ec;
+  background-color: #F4F1EC;
   color: #545149;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
@@ -23,7 +23,7 @@ body {
 }
 
 main {
-  background-color: #f4f1ec;
+  background-color: #F4f1EC;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,9 +44,14 @@ section {
 article {
   padding: 2.5% 1%;
   border: solid 0.2em #545149;
-  
 }
 
+article:hover {
+  box-shadow: 0.4em 0.4em #ADB8D5;
+}
+article:hover .rightSide {
+  visibility: visible;
+}
 
 article.tweet header {
   display: flex;
@@ -68,6 +73,7 @@ article.tweet header {
   justify-content: flex-end;
   color: silver;
   align-items: center;
+  visibility: hidden;
 }
 
 #firstName {
@@ -89,12 +95,12 @@ article.tweet footer {
 }
 
 .contentFooter {
-  margin-right: 2.5%;
-  margin-left: 2.5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: smaller;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+  font-size: small;
 }
 
 article.tweet img {
