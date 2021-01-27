@@ -3,7 +3,14 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 const createTweetElement = function(tweet) {
+
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   const htmlTweet = `
     <article class="tweet">
@@ -16,7 +23,7 @@ const createTweetElement = function(tweet) {
         <p>${tweet.user.handle}</p>
       </div>
     </header>
-    <p class="tweetContent">${tweet.content.text}</p>
+    <p class="tweetContent">${escape(tweet.content.text)}</p>
     <footer>
       <div class="contentFooter">
         <p>${tweet.created_at}</p>
@@ -45,6 +52,8 @@ const renderTweets = function(tweetData) {
 
 
 $(document).ready(function() {
+  //hide error message until needed
+    $('#error-message').hide();
 
     const loadTweets = function(tweetData) {
       $.ajax({
@@ -60,16 +69,18 @@ $(document).ready(function() {
 
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
-    
+    $('#error-message').hide();
     const specificTweet = $('#tweet-text').val().length;
     
     if (specificTweet > 140) {
-      alert("Tweet is too long, please reduce number of characters to 140 and under.");
+      $('#error-message').html('<p>❌ Your tweet is too long, please keep it below 140 characters! ❌ </p>');
+      $('#error-message').slideDown("slow");
       return;
     } 
     
     if (specificTweet === 0) {
-      alert("You didn't write anything! Try again.");
+      $('#error-message').html('<p>❌ Hey! Please input something in the field. ❌</p>');
+      $('#error-message').slideDown("slow");
       return;
     }
 
