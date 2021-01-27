@@ -38,17 +38,17 @@ $(document).ready(function() {
     <article class="tweet">
     <header>
       <div class="leftSide">
-        <img src='${tweetData[0].user.avatars}'>
-        <p id="firstName">${tweetData[0].user.name}</p>
+        <img src='${tweet.user.avatars}'>
+        <p id="firstName">${tweet.user.name}</p>
       </div>
       <div class="rightSide" >
-        <p>${tweetData[0].user.handle}</p>
+        <p>${tweet.user.handle}</p>
       </div>
     </header>
-    <p class="tweetContent">${tweetData[0].content.text}</p>
+    <p class="tweetContent">${tweet.content.text}</p>
     <footer>
       <div class="contentFooter">
-        <p>${tweetData[0].created_at}</p>
+        <p>${tweet.created_at}</p>
         <div class="icons">
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
@@ -61,8 +61,17 @@ $(document).ready(function() {
     return htmlTweet;
   };
 
-  let $tweet = createTweetElement(tweetData)
+  const renderTweets = function(tweetData){
+    //create the html element for tweet
+    for (let tweet of tweetData) {
+      let $tweet = createTweetElement(tweet);
+      $('#tweets-container').append($tweet);
+    }
 
-  console.log($tweet);
-  $('#tweets-container').append($tweet);
+  };
+
+  renderTweets(tweetData);
+
+  // console.log($tweet);
+  // $('#tweets-container').append($tweet);
 });
