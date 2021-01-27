@@ -5,10 +5,6 @@
  */
 const createTweetElement = function(tweet) {
 
-  if (tweet.length > 140) {
-    alert("Tweet is too long, please reduce number of characters to 140 and under... Thank you.");
-    
-  }
   const htmlTweet = `
     <article class="tweet">
     <header>
@@ -38,7 +34,9 @@ const createTweetElement = function(tweet) {
 
 const renderTweets = function(tweetData) {
   //create the html element for tweet
+  $('#tweets-container').empty();
   for (let tweet of tweetData) {
+
     let $tweet = createTweetElement(tweet);
     $('#tweets-container').prepend($tweet);
   }
@@ -48,39 +46,49 @@ const renderTweets = function(tweetData) {
 
 $(document).ready(function() {
 
-  $('#tweet-form').on('submit', function(event) {
+    const loadTweets = function(tweetData) {
+      $.ajax({
+        url: 'http://localhost:8080/tweets',
+        method: 'GET'
+      })
+      .done((tweet) => { 
+        renderTweets(tweet);
+      })
+      .fail(() => console.log('Error!'))
+      .always(() => console.log('Request completed'))
+    };
 
+  $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
+    
+    const specificTweet = $('#tweet-text').val().length;
+    
+    if (specificTweet > 140) {
+      alert("Tweet is too long, please reduce number of characters to 140 and under.");
+      return;
+    } 
+    
+    if (specificTweet === 0) {
+      alert("You didn't write anything! Try again.");
+      return;
+    }
 
     const formContent = $(this).serialize();
-    console.log(formContent)
+    // console.log(formContent)
     
     $.ajax({
       url: 'http://localhost:8080/tweets',
       method: 'POST',
       data: formContent
     })
-    .done((result) => console.log(result))
+    .done(() => loadTweets())
     .fail(() => console.log('Error!'))
     .always(() => console.log('Request completed'))
 
+    $('#tweet-text').val('');
+    $('.counter').val(140);
   });
-
-
-  const loadTweets = function(tweetData) {
-    $.ajax({
-      url: 'http://localhost:8080/tweets',
-      method: 'GET'
-    })
-    .done((tweet) => { 
-      renderTweets(tweet);
-    })
-    .fail(() => console.log('Error!'))
-    .always(() => console.log('Request completed'))
-  };
-
-  loadTweets()
-
-
+  
+  loadTweets();
 
 });
