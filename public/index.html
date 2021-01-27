@@ -50,7 +50,7 @@
     <!-- Page-specific (main) content here -->
     <main>
       <section class="new-tweet">
-        <form method="POST" action="/tweets">
+        <form id="tweet-form" method="POST" action="/tweets">
           <div class="tweetInput">
               <label for="tweet-text">What are you humming about?</label>
             <textarea name="text" id="tweet-text"></textarea>
@@ -62,6 +62,7 @@
         </form>
       </section>
       <section id="tweets-container">
+        <!--Empty container for new posted tweets-->
       </section>
     </main>
   </body>
