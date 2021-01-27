@@ -1,5 +1,14 @@
+/*
+ * Client-side JS logic goes here
+ * jQuery is already loaded
+ * Reminder: Use (and do all your DOM work in) jQuery's document ready function
+ */
 const createTweetElement = function(tweet) {
 
+  if (tweet.length > 140) {
+    alert("Tweet is too long, please reduce number of characters to 140 and under... Thank you.");
+    
+  }
   const htmlTweet = `
     <article class="tweet">
     <header>
@@ -23,11 +32,11 @@ const createTweetElement = function(tweet) {
       </div>
     </footer>
     </article>
-    `
+    `;
   return htmlTweet;
 };
 
-const renderTweets = function(tweetData){
+const renderTweets = function(tweetData) {
   //create the html element for tweet
   for (let tweet of tweetData) {
     let $tweet = createTweetElement(tweet);
@@ -35,42 +44,9 @@ const renderTweets = function(tweetData){
   }
 
 };
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 
 
 $(document).ready(function() {
-  
-  const tweetData = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1611533014698
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd"
-      },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1611619414698
-    }
-  ]
-
-  renderTweets(tweetData);
-
 
   $('#tweet-form').on('submit', function(event) {
 
@@ -88,6 +64,23 @@ $(document).ready(function() {
     .fail(() => console.log('Error!'))
     .always(() => console.log('Request completed'))
 
-  })
+  });
+
+
+  const loadTweets = function(tweetData) {
+    $.ajax({
+      url: 'http://localhost:8080/tweets',
+      method: 'GET'
+    })
+    .done((tweet) => { 
+      renderTweets(tweet);
+    })
+    .fail(() => console.log('Error!'))
+    .always(() => console.log('Request completed'))
+  };
+
+  loadTweets()
+
+
 
 });
