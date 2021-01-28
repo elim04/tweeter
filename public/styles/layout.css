@@ -137,7 +137,6 @@ article.tweet img {
   body {
     display: flex;
     flex-direction: column;
-    align-items: space-around;
 
   }
 
@@ -150,10 +149,11 @@ article.tweet img {
   .headerContainer {
     width: 400px;
     margin-left: 5%;
+    height: 400px;
   }
 
   main {
-    width:1000px;
+    width: 800px;
   }
 
 }
