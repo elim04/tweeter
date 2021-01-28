@@ -37,10 +37,6 @@ main {
   margin-bottom: 5%;
 }
 
-section {
-  padding-top: 3%;
-}
-
 article {
   padding: 2.5% 1%;
   border: solid 0.2em #545149;
@@ -129,3 +125,35 @@ article.tweet img {
 
 }
 
+/* tablet styles */
+/* @media only screen and (min-width: 768px) {
+
+} */
+
+/* desktop styles */
+
+@media only screen and (min-width: 1024px) {
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+
+  }
+
+  .main-content-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+  }
+
+  .headerContainer {
+    width: 400px;
+    margin-left: 5%;
+  }
+
+  main {
+    width:1000px;
+  }
+
+}

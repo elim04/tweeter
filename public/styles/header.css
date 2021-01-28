@@ -3,11 +3,12 @@
   background-color: silver;
   background-image: url("/images/transparent-background.png");
   height: 400px;
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3%;
 }
 
 .avatarContainer {
