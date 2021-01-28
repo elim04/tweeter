@@ -52,7 +52,8 @@ const renderTweets = function(tweetData) {
 
 
 $(document).ready(function() {
-  //hide error message until needed
+
+  //hide error message until triggered
     $('#error-message').hide();
 
     const loadTweets = function(tweetData) {
@@ -87,7 +88,6 @@ $(document).ready(function() {
     }
 
     const formContent = $(this).serialize();
-    // console.log(formContent)
     
     $.ajax({
       url: 'http://localhost:8080/tweets',
@@ -97,11 +97,22 @@ $(document).ready(function() {
     .done(() => loadTweets())
     .fail(() => console.log('Error!'))
     .always(() => console.log('Request completed'));
-
+    //empty the tweet input area by replacing with string and rest the counter
     $('#tweet-text').val('');
     $('.counter').val(140);
   });
   
   loadTweets();
+  
+  //stretch
+  $('#tweet-form').hide();
+  const button = $('.innerContent').children('span')
+  $(button).on("click", function() {
+    if ($('#tweet-form').is(":visible")) {
+      $('#tweet-form').slideUp();
+    } else {
+      $('#tweet-form').slideDown();
+    }
+  })
 
 });
