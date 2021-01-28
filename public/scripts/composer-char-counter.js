@@ -4,17 +4,17 @@ $(document).ready(function() {
 
   tweet.on('input', function(event) {
 
-  let characterCount = (140 - $(this).val().length);
+    let characterCount = (140 - $(this).val().length);
 
-  let counter = $(this).closest('form').children('.buttonContainer').children('.counter');
+    let counter = $(this).closest('form').children('.buttonContainer').children('.counter');
 
-  if (characterCount < 0) {
-    counter.addClass('overCharLimit');
-  } else {
-    counter.removeClass('overCharLimit')
-  }
+    if (characterCount < 0) {
+      counter.addClass('overCharLimit');
+    } else {
+      counter.removeClass('overCharLimit');
+    }
 
-  counter.html(characterCount);
+    counter.html(characterCount);
   
 
   });

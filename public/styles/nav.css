@@ -5,17 +5,11 @@ nav {
   width: 100%;
 }
 
-
-.secret {
-  background-color: silver;
-  background-image: url("/images/transparent-background.png");
-}
-
 .logo {
   align-self: center;
   display: flex;
   font-family: 'Bungee', cursive;
-  margin: 1.5em;
+  margin: 2.5%;
   
 }
 
@@ -29,7 +23,7 @@ nav {
   display: flex;
   flex-direction: column;
   font-family: 'Source Sans Pro', sans-serif;
-  margin: 1.5em;
+  margin: 2.5%;
 }
 
 .innerContent > span {
@@ -43,6 +37,8 @@ nav {
   animation-iteration-count: infinite;
 }
 
+/* For bouncing arrow on write new tweet button */
+
 @keyframes bounce {
   0% {transform: translateY(0);}
   50% {transform: translateY(5px);}
@@ -55,15 +51,3 @@ nav {
 	top: 0;
 }
 
-
-@media only screen and (min-width: 1024px){
-
-  nav {
-    background-color: #4056A1;
-    color: #FFFFFF;
-    height: 120px;
-    width: 100%;
-  }
-
-
-}

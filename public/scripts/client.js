@@ -15,11 +15,11 @@ const createTweetElement = function(tweet) {
   const htmlTweet = `
     <article class="tweet">
     <header>
-      <div class="leftSide">
+      <div class="userAvatar">
         <img src='${tweet.user.avatars}'>
         <p id="firstName">${tweet.user.name}</p>
       </div>
-      <div class="rightSide" >
+      <div class="userHandle" >
         <p>${tweet.user.handle}</p>
       </div>
     </header>
@@ -54,19 +54,19 @@ const renderTweets = function(tweetData) {
 $(document).ready(function() {
 
   //hide error message until triggered
-    $('#error-message').hide();
+  $('#error-message').hide();
 
-    const loadTweets = function(tweetData) {
-      $.ajax({
-        url: 'http://localhost:8080/tweets',
-        method: 'GET'
-      })
-      .done((tweet) => { 
+  const loadTweets = function() {
+    $.ajax({
+      url: 'http://localhost:8080/tweets',
+      method: 'GET'
+    })
+      .done((tweet) => {
         renderTweets(tweet);
       })
       .fail(() => console.log('Error!'))
       .always(() => console.log('Request completed'));
-    };
+  };
 
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
@@ -76,7 +76,7 @@ $(document).ready(function() {
     const specificTweet = $('#tweet-text').val().length;
     
     if (specificTweet > 140) {
-      $('#error-message').html('<p>❌ Your tweet is too long, please keep it below 140 characters! ❌ </p>');
+      $('#error-message').html('<p>❌ Your tweet is too long, please keep it below 140 characters! ❌</p>');
       $('#error-message').slideDown("slow");
       return;
     }
@@ -94,10 +94,11 @@ $(document).ready(function() {
       method: 'POST',
       data: formContent
     })
-    .done(() => loadTweets())
-    .fail(() => console.log('Error!'))
-    .always(() => console.log('Request completed'));
-    //empty the tweet input area by replacing with string and rest the counter
+      .done(() => loadTweets())
+      .fail(() => console.log('Error!'))
+      .always(() => console.log('Request completed'));
+
+    //After post complete - empty the tweet input area by replacing with string and reset the counter
     $('#tweet-text').val('');
     $('.counter').val(140);
   });

@@ -46,7 +46,7 @@ article {
 article:hover {
   box-shadow: 0.4em 0.4em #ADB8D5;
 }
-article:hover .rightSide {
+article:hover .userHandle {
   visibility: visible;
 }
 
@@ -60,12 +60,12 @@ article.tweet header {
 
 }
 
-.leftSide {
+.userAvatar {
   display: flex;
   justify-content: flex-start;
 }
 
-.rightSide {
+.userHandle {
   display: flex;
   justify-content: flex-end;
   color: silver;
@@ -125,12 +125,7 @@ article.tweet img {
 
 }
 
-/* tablet styles */
-/* @media only screen and (min-width: 768px) {
-
-} */
-
-/* desktop styles */
+/* Desktop styles width above 1024px */
 
 @media only screen and (min-width: 1024px) {
 
@@ -140,7 +135,7 @@ article.tweet img {
 
   }
 
-  .main-content-container {
+  .mainContentContainer {
     display: flex;
     justify-content: space-between;
     margin-top: 5%;
