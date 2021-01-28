@@ -26,7 +26,7 @@ const createTweetElement = function(tweet) {
     <p class="tweetContent">${escape(tweet.content.text)}</p>
     <footer>
       <div class="contentFooter">
-        <p>${tweet.created_at}</p>
+        <p>${moment(tweet.created_at).fromNow()}</p>
         <div class="icons">
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
@@ -64,19 +64,21 @@ $(document).ready(function() {
         renderTweets(tweet);
       })
       .fail(() => console.log('Error!'))
-      .always(() => console.log('Request completed'))
+      .always(() => console.log('Request completed'));
     };
 
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
-    $('#error-message').hide();
+
+    $('#error-message').slideUp("slow");
+
     const specificTweet = $('#tweet-text').val().length;
     
     if (specificTweet > 140) {
       $('#error-message').html('<p>❌ Your tweet is too long, please keep it below 140 characters! ❌ </p>');
       $('#error-message').slideDown("slow");
       return;
-    } 
+    }
     
     if (specificTweet === 0) {
       $('#error-message').html('<p>❌ Hey! Please input something in the field. ❌</p>');
@@ -94,7 +96,7 @@ $(document).ready(function() {
     })
     .done(() => loadTweets())
     .fail(() => console.log('Error!'))
-    .always(() => console.log('Request completed'))
+    .always(() => console.log('Request completed'));
 
     $('#tweet-text').val('');
     $('.counter').val(140);
