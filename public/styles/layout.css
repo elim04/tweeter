@@ -22,6 +22,11 @@ body {
 
 }
 
+
+/*
+* Additional CSS can be defined below or in other CSS files, as per instructions
+*/
+
 main {
   background-color: #F4F1EC;
   display: flex;
@@ -31,10 +36,6 @@ main {
   margin-right: 5%;
   margin-bottom: 5%;
 }
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
 
 section {
   padding-top: 3%;
@@ -111,6 +112,7 @@ article.tweet img {
 
 #error-message {
   border: solid 0.20em red;
+  border-radius: 1em;
   color: red;
   margin-bottom: 1em;
   display: flex;
@@ -118,7 +120,12 @@ article.tweet img {
   align-items: center;
 }
 
- /*
- font-family: 'Bungee', cursive; bungee
- font-family: 'Source Sans Pro', sans-serif; 
- */
+#scroll-arrow {
+  display: flex;
+  justify-content: flex-end;
+  color: red;
+  margin-right: 1.5%;
+  margin-bottom: 1.5%;
+
+}
+
