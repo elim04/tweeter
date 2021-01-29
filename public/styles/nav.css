@@ -45,6 +45,8 @@ nav {
   100% {transform: translateY(0);}
 }
 
+/* Keep nav in place*/
+
 .sticky {
   position: -webkit-sticky;
 	position: sticky;

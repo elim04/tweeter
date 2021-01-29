@@ -23,7 +23,9 @@ const createTweetElement = function(tweet) {
         <p>${tweet.user.handle}</p>
       </div>
     </header>
-    <p class="tweetContent">${escape(tweet.content.text)}</p>
+    <body>
+      <p class="tweetContent">${escape(tweet.content.text)}</p>
+    </body>
     <footer>
       <div class="contentFooter">
         <p>${moment(tweet.created_at).fromNow()}</p>
@@ -40,10 +42,10 @@ const createTweetElement = function(tweet) {
 };
 
 const renderTweets = function(tweetData) {
-  //create the html element for tweet
   $('#tweets-container').empty();
   for (let tweet of tweetData) {
-
+    
+    //create the html element for tweet
     let $tweet = createTweetElement(tweet);
     $('#tweets-container').prepend($tweet);
   }
@@ -104,6 +106,5 @@ $(document).ready(function() {
   });
   
   loadTweets();
-
 
 });

@@ -24,3 +24,4 @@ This repository is the starter code for the project: Students will fork and clon
 !["Screenshot of Tweet Box"](https://github.com/elim04/tweeter/blob/master/docs/tweet-box-open.png)
 !["Screenshot of Mobile Size Display"](https://github.com/elim04/tweeter/blob/master/docs/mobile-size.png)
 !["Screenshot of Error Message"](https://github.com/elim04/tweeter/blob/master/docs/error-msg.png)
+

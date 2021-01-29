@@ -117,12 +117,25 @@ article.tweet img {
 }
 
 #scroll-arrow {
-  display: flex;
-  justify-content: flex-end;
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
   color: red;
   margin-right: 1.5%;
   margin-bottom: 1.5%;
+}
 
+#scroll-arrow:hover {
+  animation-name: bounce;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  0% {transform: translateY(0);}
+  50% {transform: translateY(5px);}
+  100% {transform: translateY(0);}
 }
 
 /* Desktop styles width above 1024px */
