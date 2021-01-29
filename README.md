@@ -18,5 +18,9 @@ This repository is the starter code for the project: Students will fork and clon
 - Body-parser
 - Chance
 
-## Screenshots 
+## Screenshots of Final Product
 
+!["Screenshot of Main Page"]()
+!["Screenshot of Tweet Box"]()
+!["Screenshot of Mobile Size Display"]()
+!["Screenshot of Error Message"]()
