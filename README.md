@@ -21,14 +21,14 @@ This repository is the starter code for the project: Students will fork and clon
 ## Screenshots of Final Product
 
 ### Add A New Tweet
-!["Screenshot of Add a new Tweet"](https://github.com/elim04/tweeter/blob/master/docs/main-page.png)
+!["Screenshot of Add a new Tweet"](https://github.com/elim04/tweeter/blob/master/docs/add-new-tweet.gif)
 
 ### Mobile Size Display
 !["Screenshot of Mobile Size Display"](https://github.com/elim04/tweeter/blob/master/docs/mobile-size.png)
 
 ### Error Msg - Submit Tweet With No Input
-!["Screenshot of Error Msg With No Input"](https://github.com/elim04/tweeter/blob/master/docs/tweet-box-open.png)
+!["Screenshot of Error Msg With No Input"](https://github.com/elim04/tweeter/blob/master/docs/no-input-error.gif)
 
 ### Error Msg - Submit Tweet With Too Many Characters
-!["Screenshot of Error Msg Too Many Characters"](https://github.com/elim04/tweeter/blob/master/docs/error-msg.png)
+!["Screenshot of Error Msg Too Many Characters"](https://github.com/elim04/tweeter/blob/master/docs/tweet-too-long-error.gif)
 
